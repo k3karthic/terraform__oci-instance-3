@@ -72,7 +72,7 @@ resource "oci_core_instance" "free" {
   }
 
   metadata = {
-    ssh_authorized_keys = file("${path.module}/ssh/oracle_2.pub")
+    ssh_authorized_keys = file("${path.module}/ssh/oracle_3.pub")
   }
 
   source_details {

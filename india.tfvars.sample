@@ -1,7 +1,7 @@
 ad          = "cBrC:AP-HYDERABAD-1-AD-1"
 compartment = "ocid1.tenancy.oc1..XXX"
 
-hostname = "free2"
+hostname = "free3"
 
 vcn_id    = "ocid1.vcn.oc1.ap-XXX.XXX"
 subnet_id = "ocid1.subnet.oc1.ap-XXX.XXX"
@@ -14,7 +14,7 @@ image_id = "ocid1.image.oc1.ap-XXX.XXX"
 # flex_ocpus = 0
 
 shape = "VM.Standard.A1.Flex"
-flex_memory_in_gbs = 4
-flex_ocpus = 24
+flex_memory_in_gbs = 24
+flex_ocpus = 4
 
 ydns_host = "XXX.ydns.eu"
