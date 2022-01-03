@@ -1,0 +1,6 @@
+.terraform
+tf.plan
+india.tfvars
+terraform.tfstate
+terraform.tfstate.backup
+ssh/oracle_3.pub
