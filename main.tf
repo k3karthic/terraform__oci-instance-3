@@ -82,8 +82,9 @@ resource "oci_core_instance" "free" {
   }
 
   freeform_tags = {
-    "os"           = var.image_os
-    "ydns_host"    = var.ydns_host
+    "os"                  = var.image_os
+    "ydns_host"           = var.ydns_host
+    "jetbrains_projector" = "yes"
   }
 }
 
