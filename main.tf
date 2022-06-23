@@ -85,6 +85,7 @@ resource "oci_core_instance" "free" {
     "os"                  = var.image_os
     "ydns_host"           = var.ydns_host
     "jetbrains_projector" = "yes"
+	"convertigo_service"  = "yes"
   }
 }
 
@@ -144,6 +145,23 @@ resource "oci_core_network_security_group_security_rule" "projector" {
     destination_port_range {
       min = 9999
       max = 9999
+    }
+  }
+}
+
+resource "oci_core_network_security_group_security_rule" "convertigo" {
+  network_security_group_id = oci_core_network_security_group.free.id
+
+  direction = "INGRESS"
+  protocol  = 6 # TCP
+
+  source      = "0.0.0.0/0"
+  source_type = "CIDR_BLOCK"
+
+  tcp_options {
+    destination_port_range {
+      min = 28080
+      max = 28080
     }
   }
 }
