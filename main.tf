@@ -86,6 +86,7 @@ resource "oci_core_instance" "free" {
     "ydns_host"           = var.ydns_host
     "jetbrains_projector" = "yes"
 	"convertigo_service"  = "yes"
+	"nginx_service"       = "yes"
   }
 }
 
