@@ -18,6 +18,8 @@ variable "flex_memory_in_gbs" {}
 variable "flex_ocpus" {}
 
 variable "ydns_host" {}
+variable "njalla_domain" {}
+variable "njalla_domain_id" {}
 
 /*
  * Providers
@@ -87,6 +89,8 @@ resource "oci_core_instance" "free" {
     "jetbrains_projector" = "yes"
 	"convertigo_service"  = "yes"
 	"nginx_service"       = "yes"
+	"njalla_domain"       = var.njalla_domain
+	"njalla_domain_id"    = var.njalla_domain_id
   }
 }
 
