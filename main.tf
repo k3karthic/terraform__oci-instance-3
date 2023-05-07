@@ -17,7 +17,6 @@ variable "shape" {}
 variable "flex_memory_in_gbs" {}
 variable "flex_ocpus" {}
 
-variable "ydns_host" {}
 variable "njalla_domain" {}
 variable "njalla_domain_id" {}
 
@@ -85,9 +84,6 @@ resource "oci_core_instance" "free" {
 
   freeform_tags = {
     "os"                  = var.image_os
-    "ydns_host"           = var.ydns_host
-    "jetbrains_projector" = "yes"
-	"convertigo_service"  = "yes"
 	"nginx_service"       = "yes"
 	"njalla_domain"       = var.njalla_domain
 	"njalla_domain_id"    = var.njalla_domain_id
@@ -133,40 +129,6 @@ resource "oci_core_network_security_group_security_rule" "http" {
     destination_port_range {
       min = 80
       max = 80
-    }
-  }
-}
-
-resource "oci_core_network_security_group_security_rule" "projector" {
-  network_security_group_id = oci_core_network_security_group.free.id
-
-  direction = "INGRESS"
-  protocol  = 6 # TCP
-
-  source      = "0.0.0.0/0"
-  source_type = "CIDR_BLOCK"
-
-  tcp_options {
-    destination_port_range {
-      min = 9999
-      max = 9999
-    }
-  }
-}
-
-resource "oci_core_network_security_group_security_rule" "convertigo" {
-  network_security_group_id = oci_core_network_security_group.free.id
-
-  direction = "INGRESS"
-  protocol  = 6 # TCP
-
-  source      = "0.0.0.0/0"
-  source_type = "CIDR_BLOCK"
-
-  tcp_options {
-    destination_port_range {
-      min = 28080
-      max = 28080
     }
   }
 }
